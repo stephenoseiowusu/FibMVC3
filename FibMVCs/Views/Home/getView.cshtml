@@ -1,0 +1,29 @@
+﻿<script lang="text/javascript" >
+    function getResults()
+    {
+        var llpj = getElementbyid("results").text;
+        $.ajax({
+            url: "/getFib",
+            contentType: 'application/json',
+            type: "POST",
+            dataType: "json",
+            data: llpj,
+            success: function (data) {
+                if (data["result"] === "success") {
+                    //the callback with data from ajax and the object (imagesAndName)
+                  
+                }
+            }
+        });
+       
+      
+       
+
+    }
+    function myFunction2(xhttp) {
+        getElementbyid("results").innerHtml = xhttp.responseText;
+    }
+
+</script>
+<p>Inut your max number: <input type ="text" id="in" /> <input type="button" value="click me" onclick="getResults()"/></p>
+<p>Results  <p id="results"></p></p> 
